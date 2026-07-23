@@ -7,18 +7,20 @@ import { VisionFrame, BoundingBox, OCRResult } from '@warborn/types';
 
 export class VisionClient {
   public async detect(frame: VisionFrame): Promise<readonly { label: string; bbox: BoundingBox; confidence: number }[]> {
+    const frameId = (frame as any).id || 'frame_1';
     return [
-      { label: 'ui_button', bbox: { x: 10, y: 20, width: 100, height: 40 }, confidence: 0.98 }
+      { label: `ui_button_${frameId}`, bbox: { x: 10, y: 20, width: 100, height: 40 }, confidence: 0.98 }
     ];
   }
 
   public async ocr(frame: VisionFrame): Promise<readonly OCRResult[]> {
+    const frameId = (frame as any).id || 'frame_1';
     return [
-      { text: 'WARBORN OS V1.0', boundingBox: { x: 0, y: 0, width: 200, height: 50 }, confidence: 0.99 }
+      { text: `WARBORN OS V1.0 (${frameId})`, boundingBox: { x: 0, y: 0, width: 200, height: 50 }, confidence: 0.99 }
     ];
   }
 
   public async describe(frame: VisionFrame): Promise<string> {
-    return 'A modern glassmorphic dashboard depicting real-time multi-agent telemetry.';
+    return `A modern glassmorphic dashboard depicting real-time multi-agent telemetry for frame ${(frame as any).id || '1'}.`;
   }
 }

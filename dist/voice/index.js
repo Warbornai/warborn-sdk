@@ -7,12 +7,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.VoiceClient = void 0;
 class VoiceClient {
     async transcribe(audio) {
-        return 'Transcribed voice command: Execute system status check.';
+        return `Transcribed voice command (${audio.sampleRate || 24000}Hz): Execute system status check.`;
     }
     async synthesize(request) {
         return {
-            frameId: `audio_${Date.now()}`,
-            data: 'AQIDBAUGBwgJCgsMDQ4PEBESExQ=',
+            data: request.text || 'AQIDBAUGBwgJCgsMDQ4PEBESExQ=',
             sampleRate: 24000,
             channels: 1,
             encoding: 'pcm_s16le',
