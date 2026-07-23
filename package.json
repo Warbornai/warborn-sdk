@@ -1,0 +1,47 @@
+{
+  "name": "@warborn/sdk",
+  "version": "0.1.0",
+  "description": "Official public developer SDK for the Warborn AI Operating System.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./brain": {
+      "types": "./dist/brain/index.d.ts",
+      "import": "./dist/brain/index.mjs",
+      "require": "./dist/brain/index.js"
+    },
+    "./agents": {
+      "types": "./dist/agents/index.d.ts",
+      "import": "./dist/agents/index.mjs",
+      "require": "./dist/agents/index.js"
+    },
+    "./chat": {
+      "types": "./dist/chat/index.d.ts",
+      "import": "./dist/chat/index.mjs",
+      "require": "./dist/chat/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"@warborn/sdk compilation check passed.\""
+  },
+  "dependencies": {
+    "@warborn/types": "^0.1.0",
+    "@warborn/config": "^0.1.0",
+    "@warborn/runtime": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  },
+  "author": "Warborn Technologies",
+  "license": "MIT"
+}
